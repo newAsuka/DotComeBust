@@ -32,5 +32,49 @@ public class DotCome {
     } //close if
     return result;
   } //close method
+
+
+  public String checkYourselfGoogleStyle(String userInput) {
+    // Preconditions check
+    int index = locationCells.indexOf(userInput);
+    if (index < 0) {
+      return "miss";
+    }
+
+    locationCells.remove(index);
+    if (locationCells.isEmpty()) {
+      return "kill";
+    }
+
+    return "hit";
+  }
+
+
+
+//  public boolean checkYourselfMicrosoftStyle(String userInput, ArrayList<String> result) {
+//    boolean succ = true;
+//
+//    int index = locationCells.indexOf(userInput);
+//    succ = succ && (index >= 0);
+//    if (succ) {
+//      locationCells.remove(index);
+//    }
+//
+//    if (succ && (locationCells.isEmpty())) {
+//      result.add("kill");
+//      succ = true;
+//    }
+//
+//    if (succ && (!locationCells.isEmpty())) {
+//      result.add("hit");
+//      succ = true;
+//    }
+//
+//    if (!succ) {
+//      result.add("miss");
+//    }
+//
+//    return succ;
+//  }
 } //close class
 

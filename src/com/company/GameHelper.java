@@ -50,9 +50,36 @@ public class GameHelper {
       int x = 0;
         success = true;
         while (success && x < comSize) {
-
+          if (grid[location] == 0) {                 //if not already used
+            coords[x++] = location;                  //save location
+            location += incr;                        //try "next" adjacent
+            if (location >= gridSize) {
+              success = false;
+            }
+            if (x > 0 && (location % gridLength == 0)){
+              success = false;
+            }
+          } else {
+            success = false;
+          }
         }
     }
+
+    int x = 0;
+    int row = 0;
+    int column = 0;
+
+    while (x < comSize) {
+      grid[coords[x]] = 1;
+      row = (int)(coords[x]/gridLength);              //get row value
+      column = coords[x] % gridLength;                //get numeric column value
+      temp = String.valueOf(alphabet.charAt(column)); //covert to alpha
+
+      alphaCells.add(temp.concat(Integer.toString(row)));
+      x++;
+      System.out.print(" coord "+x+" = "+alphaCells.get(x-1));
+    }
+    return alphaCells;
   }
 
 

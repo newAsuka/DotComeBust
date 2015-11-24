@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by brynhild on 11/23/15.
  */
-public class DotCome {
+public class DotCom {
   private ArrayList<String> locationCells;
   private String name;
 
@@ -34,20 +34,20 @@ public class DotCome {
   } //close method
 
 
-  public String checkYourselfGoogleStyle(String userInput) {
-    // Preconditions check
-    int index = locationCells.indexOf(userInput);
-    if (index < 0) {
-      return "miss";
-    }
-
-    locationCells.remove(index);
-    if (locationCells.isEmpty()) {
-      return "kill";
-    }
-
-    return "hit";
-  }
+//  public String checkYourselfGoogleStyle(String userInput) {
+//    // Preconditions check
+//    int index = locationCells.indexOf(userInput);
+//    if (index < 0) {
+//      return "miss";
+//    }
+//
+//    locationCells.remove(index);
+//    if (locationCells.isEmpty()) {
+//      return "kill";
+//    }
+//
+//    return "hit";
+//  }
 
 
 
@@ -76,5 +76,8 @@ public class DotCome {
 //
 //    return succ;
 //  }
+
+
+
 } //close class
 

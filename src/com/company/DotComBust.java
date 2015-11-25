@@ -30,11 +30,16 @@ public class DotComBust {
 
 
     public static void main(String[] args) {
-      GameHelper helper = new GameHelper();
-      ArrayList<String> loc = helper.placeDotCom(3);
-      System.out.println("loc.size=" + Integer.toString(loc.size()));
-      for (String infoInHelper : loc)
-        System.out.println(infoInHelper);
+     int numOfHelper = 3;
+     GameHelper[]  helpers = new GameHelper[numOfHelper];
+     for (int i=0;i<numOfHelper;i++){
+       helpers[i] = new GameHelper();
+       helpers[i].placeDotCom(3);
+     }
+
+     for(int i=0;i<3;i++){
+       System.out.println(helpers[i].comCount);
+     }
 
     }
 }

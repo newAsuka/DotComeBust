@@ -31,7 +31,7 @@ public class DotCom {
       } //close if
     } //close if
     return result;
-  } //close method
+  }
 
 
 //  public String checkYourselfGoogleStyle(String userInput) {

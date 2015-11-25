@@ -25,7 +25,7 @@ public class DotCom {
 
       if(locationCells.isEmpty()) {
         result = "kill";
-        System.out.println("you sunk the DotCom " + name);
+        System.out.println("you sunk the  " + name);
       } else {
         result = "hit";
       } //close if

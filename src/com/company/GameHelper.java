@@ -67,9 +67,9 @@ public class GameHelper {
     boolean success = false;                          //found good location?
     int location = 0;                                 //current starting position
 
-    //comCount++;
+    comCount++;
 
-    //System.out.println(comCount);
+    System.out.println("comCount = "+ Integer.toString(comCount));
     int incr = 1;
     if((comCount % 2) == 1) {
       incr = gridLength;
@@ -107,8 +107,8 @@ public class GameHelper {
     while (x < comSize) {
       grid[coords[x]] = 1;
 
-      row = (int)(coords[x]/gridLength);              //get row value
-      column = coords[x] % gridLength;                //get numeric column value
+      column = (int)(coords[x]/gridLength);        //get row value   ////exchange row with column
+      row = coords[x] % gridLength;                //get numeric column value
       temp = String.valueOf(alphabet.charAt(column)); //covert to alpha
 
       alphaCells.add(temp.concat(Integer.toString(row)));

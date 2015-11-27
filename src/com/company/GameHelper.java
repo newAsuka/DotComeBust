@@ -112,25 +112,35 @@ public class GameHelper {
   }
 
   boolean placeDotComOnce(int comSize, int[] coords, int location, int incr) {
-    boolean success;
-    int x = 0;
-    success = true;
-    while (success && x < comSize) {
-      if (grid[location] == 0) {                 //if not already used
-        coords[x++] = location;                  //save location
-        location += incr;                        //try "next" adjacent
-        if (location >= gridSize) {
-          success = false;
-        }
-        if (x > 0 && (location % gridLength == 0)) {
-          success = false;
-        }
-      } else {
-        success = false;
+    for (int index = 0; index < comSize; ++index, location += incr) {
+      if (location >= gridSize || grid[location] != 0) {
+        return false;
       }
+      coords[index] = location;
     }
-    return success;
+    return true;
   }
+
+//  boolean placeDotComOnce(int comSize, int[] coords, int location, int incr) {
+//    boolean success;
+//    int x = 0;
+//    success = true;
+//    while (success && x < comSize) {
+//      if (grid[location] == 0) {                 //if not already used
+//        coords[x++] = location;                  //save location
+//        location += incr;                        //try "next" adjacent
+//        if (location > gridSize) {
+//          success = false;
+//        }
+//        if (x > 0 && (location % gridLength == 0)) {
+//          success = false;
+//        }
+//      } else {
+//        success = false;
+//      }
+//    }
+//    return success;
+//  }
 
 
 }

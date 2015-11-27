@@ -63,6 +63,30 @@ public class GameHelperTest {
     assertIsAdjacent(r1.charAt(1), r2.charAt(1));
   }
 
+  @Test
+  public void placeDotComOnce_shouldSuccess() {
+    int comSize = 3;
+    int[] coords = new int[3];
+    int location = 46;
+    int incr = 1;
+
+    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
+
+    assertTrue(success);
+  }
+
+  @Test
+  public void placeDotComOnce_shouldFail_ifOutOfRange_whenHorizontal() {
+    int comSize = 3;
+    int[] coords = new int[3];
+    int location = 47;
+    int incr = 1;
+
+    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
+
+    assertFalse(success);
+  }
+
   private void assertIsAdjacent(char c1, char c2) {
     assertEquals(1, Math.abs(c2 - c1));
   }

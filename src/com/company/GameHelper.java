@@ -80,23 +80,7 @@ public class GameHelper {
 
       location = (int) (Math.random() * gridSize);   //get random starting point
 
-      int x = 0;
-      success = true;
-      while (success && x < comSize) {
-//        System.out.println("location="+Integer.toString(location));
-        if (grid[location] == 0) {                 //if not already used
-          coords[x++] = location;                  //save location
-          location += incr;                        //try "next" adjacent
-          if (location >= gridSize) {
-            success = false;
-          }
-          if (x > 0 && (location % gridLength == 0)) {
-            success = false;
-          }
-        } else {
-          success = false;
-        }
-      }
+      success = placeDotComOnce(comSize, coords, location, incr);
 
     }
 
@@ -125,6 +109,27 @@ public class GameHelper {
 //      System.out.println();
 //    }
     return alphaCells;
+  }
+
+  boolean placeDotComOnce(int comSize, int[] coords, int location, int incr) {
+    boolean success;
+    int x = 0;
+    success = true;
+    while (success && x < comSize) {
+      if (grid[location] == 0) {                 //if not already used
+        coords[x++] = location;                  //save location
+        location += incr;                        //try "next" adjacent
+        if (location >= gridSize) {
+          success = false;
+        }
+        if (x > 0 && (location % gridLength == 0)) {
+          success = false;
+        }
+      } else {
+        success = false;
+      }
+    }
+    return success;
   }
 
 

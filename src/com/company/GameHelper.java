@@ -83,6 +83,7 @@ public class GameHelper {
       int x = 0;
       success = true;
       while (success && x < comSize) {
+        System.out.println("location="+Integer.toString(location));
         if (grid[location] == 0) {                 //if not already used
           coords[x++] = location;                  //save location
           location += incr;                        //try "next" adjacent
@@ -95,7 +96,6 @@ public class GameHelper {
         } else {
           success = false;
         }
-        System.out.println("location="+Integer.toString(location));
       }
 
     }
@@ -107,11 +107,11 @@ public class GameHelper {
     while (x < comSize) {
       grid[coords[x]] = 1;
 
-      column = (int)(coords[x]/gridLength);        //get row value   ////exchange row with column
-      row = coords[x] % gridLength;                //get numeric column value
-      temp = String.valueOf(alphabet.charAt(column)); //covert to alpha
+      row = (int)(coords[x]/gridLength);        //get row value   ////exchange row with column
+      column = coords[x] % gridLength;                //get numeric column value
+      temp = String.valueOf(alphabet.charAt(row)); //covert to alpha
 
-      alphaCells.add(temp.concat(Integer.toString(row)));
+      alphaCells.add(temp.concat(Integer.toString(column)));
       x++;
       System.out.print(" cord "+x+" = "+alphaCells.get(x-1));
     }

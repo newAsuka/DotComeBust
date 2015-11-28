@@ -24,53 +24,10 @@ public class GameHelperTest {
     assertEquals(3, result.size());
   }
 
-//  @Test
-//  public void placeDotCom_shouldReturnVerticalSequence_forOddCall() {
-//    boolean isHorizontal = helper.comCount % 2 == 0;
-//    assertTrue(helper.comCount % 2 == 0);
-//    ArrayList<String> result = helper.placeDotCom(3);
-//
-//    String r0 = result.get(0);
-//    String r1 = result.get(1);
-//    String r2 = result.get(2);
-//
-//    // Same column
-//    assertEquals(r0.charAt(1) - '0', r1.charAt(1) - '0');
-//    assertEquals(r1.charAt(1) - '0', r2.charAt(1) - '0');
-//
-//    // Adjacent rows
-//    assertIsAdjacent(r0.charAt(0), r1.charAt(0));
-//    assertIsAdjacent(r1.charAt(0), r2.charAt(0));
-//  }
-//
-//  @Test
-//  public void placeDotCom_shouldReturnHorizontalSequence_forEvenCalls() {
-//    helper.placeDotCom(3);
-//
-//    assertTrue(helper.comCount % 2 == 1);
-//    ArrayList<String> result = helper.placeDotCom(3);
-//
-//    String r0 = result.get(0);
-//    String r1 = result.get(1);
-//    String r2 = result.get(2);
-//
-//    // Same rows
-//    assertEquals(r0.charAt(0), r1.charAt(0));
-//    assertEquals(r1.charAt(0), r2.charAt(0));
-//
-//    // Adjacent column
-//    assertIsAdjacent(r0.charAt(1), r1.charAt(1));
-//    assertIsAdjacent(r1.charAt(1), r2.charAt(1));
-//  }
-
   @Test
   public void placeDotComOnce_horizontal_shouldSuccess() {
-    int comSize = 3;
     int[] coords = new int[3];
-    int location = 46;
-    int incr = 1;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
+    boolean success = helper.placeDotComOnce(3, coords, 46, 1);
 
     assertTrue(success);
     assertEquals(46, coords[0]);
@@ -80,12 +37,8 @@ public class GameHelperTest {
 
   @Test
   public void placeDotComOnce_vertical_shouldSuccess() {
-    int comSize = 3;
     int[] coords = new int[3];
-    int location = 34;
-    int incr = 7;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
+    boolean success = helper.placeDotComOnce(3, coords, 34, 7);
 
     assertTrue(success);
     assertEquals(34, coords[0]);
@@ -95,62 +48,27 @@ public class GameHelperTest {
 
   @Test
   public void placeDotComOnce_shouldFail_ifOutOfRange_whenHorizontal() {
-    int comSize = 3;
-    int[] coords = new int[3];
-    int location = 47;
-    int incr = 1;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
-
-    assertFalse(success);
+    assertFalse(helper.placeDotComOnce(3, new int[3], 47, 1));
   }
 
   @Test
   public void placeDotComOnce_shouldFail_ifOutOfRange_whenVertical() {
-    int comSize = 3;
-    int[] coords = new int[3];
-    int location = 35;
-    int incr = 7;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
-
-    assertFalse(success);
+    assertFalse(helper.placeDotComOnce(3, new int[3], 35, 7));
   }
 
   @Test
   public void placeDotComOnce_shouldNotBreakLine_whenHorizontal() {
-    int comSize = 3;
-    int[] coords = new int[3];
-    int location = 5;
-    int incr = 1;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
-
-    assertFalse(success);
+    assertFalse(helper.placeDotComOnce(3, new int[3], 5, 1));
   }
 
   @Test
   public void placeDotComOnce_shouldBeAbleToPutAtFirstColumn() {
-    int comSize = 3;
-    int[] coords = new int[3];
-    int location = 0;
-    int incr = 7;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
-
-    assertTrue(success);
+    assertTrue(helper.placeDotComOnce(3, new int[3], 0, 7));
   }
 
   @Test
-  public void placeDotComeOnce_shouldNotOverlapping(){
+  public void placeDotComeOnce_shouldNotOverlapping() {
     helper.grid[3] = 1;
-    int comSize = 3;
-    int[] coords = new int[3];
-    int location = 3;
-    int incr = 1;
-
-    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
-
-    assertFalse(success);
+    assertFalse(helper.placeDotComOnce(3, new int[3], 3, 1));
   }
 }

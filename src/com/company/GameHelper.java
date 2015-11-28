@@ -30,35 +30,6 @@ public class GameHelper {
     return inputLine.toLowerCase();
   }
 
-
-//  /**
-//   * ...
-//   * @param comSize size of the dotCom
-//   * @return coordinates like a0 a1 b0 ...
-//   */
-//  public ArrayList<String> placeDotComByBalon(int comSize) {
-//    int[] coords = new int[comSize];
-//    pickCoordinates(coords);
-//    return convertToCoordinates(coords);
-//  }
-//
-//  private void pickCoordinates(int[] coords) {
-//    for(int attempts = 0; attempts < 100; ++attempts) {
-//      if (tryPickRandomCoordinates(coords)) {
-//        break;
-//      }
-//    }
-//  }
-//
-//  private boolean tryPickRandomCoordinates(int[] coords) {
-//    return false;
-//  }
-//
-//  private ArrayList<String> convertToCoordinates(int[] coords) {
-//    return null;
-//  }
-
-
   public ArrayList<String> placeDotCom(int comSize) {
     ArrayList<String> alphaCells = new ArrayList<>(); // hold "f6" type coords
     String temp = null;
@@ -69,7 +40,6 @@ public class GameHelper {
 
     comCount++;
 
-//    System.out.println("comCount = "+ Integer.toString(comCount));
     int incr = 1;
     if((comCount % 2) == 1) {
       incr = gridLength;
@@ -97,17 +67,7 @@ public class GameHelper {
 
       alphaCells.add(temp.concat(Integer.toString(column)));
       x++;
-//      System.out.print(" cord "+x+" = "+alphaCells.get(x-1));
     }
-
-//    System.out.println();
-
-//    for (int index = 0; index < gridLength; index++) {
-//      for (int j = 0; j < gridLength; j++) {
-//        System.out.print(grid[index * 7 + j]);
-//      }
-//      System.out.println();
-//    }
     return alphaCells;
   }
 
@@ -124,27 +84,4 @@ public class GameHelper {
     }
     return true;
   }
-
-//  boolean placeDotComOnce(int comSize, int[] coords, int location, int incr) {
-//    boolean success;
-//    int x = 0;
-//    success = true;
-//    while (success && x < comSize) {
-//      if (grid[location] == 0) {                 //if not already used
-//        coords[x++] = location;                  //save location
-//        location += incr;                        //try "next" adjacent
-//        if (location > gridSize) {
-//          success = false;
-//        }
-//        if (x > 0 && (location % gridLength == 0)) {
-//          success = false;
-//        }
-//      } else {
-//        success = false;
-//      }
-//    }
-//    return success;
-//  }
-
-
 }

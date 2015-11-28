@@ -13,7 +13,7 @@ public class GameHelper {
   private static final String alphabet = "abcdefg";
   private int gridLength = 7;
   private int gridSize = 49;
-  private int[] grid = new int[gridSize];
+  int[] grid = new int[gridSize];
   public int comCount = 0;
 
   public String getUserInput(String prompt) {

@@ -73,6 +73,9 @@ public class GameHelperTest {
     boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
 
     assertTrue(success);
+    assertEquals(46, coords[0]);
+    assertEquals(47, coords[1]);
+    assertEquals(48, coords[2]);
   }
 
   @Test
@@ -85,6 +88,9 @@ public class GameHelperTest {
     boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
 
     assertTrue(success);
+    assertEquals(34, coords[0]);
+    assertEquals(41, coords[1]);
+    assertEquals(48, coords[2]);
   }
 
   @Test
@@ -135,7 +141,16 @@ public class GameHelperTest {
     assertTrue(success);
   }
 
-  private void assertIsAdjacent(char c1, char c2) {
-    assertEquals(1, Math.abs(c2 - c1));
+  @Test
+  public void placeDotComeOnce_shouldNotOverlapping(){
+    helper.grid[3] = 1;
+    int comSize = 3;
+    int[] coords = new int[3];
+    int location = 3;
+    int incr = 1;
+
+    boolean success = helper.placeDotComOnce(comSize, coords, location, incr);
+
+    assertFalse(success);
   }
 }

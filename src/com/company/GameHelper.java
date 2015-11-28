@@ -112,6 +112,10 @@ public class GameHelper {
   }
 
   boolean placeDotComOnce(int comSize, int[] coords, int location, int incr) {
+    if (incr == 1 && location % gridLength > gridLength - comSize) {
+      return false;
+    }
+
     for (int index = 0; index < comSize; ++index, location += incr) {
       if (location >= gridSize || grid[location] != 0) {
         return false;

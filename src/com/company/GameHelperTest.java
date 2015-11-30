@@ -71,4 +71,26 @@ public class GameHelperTest {
     helper.grid[3] = 1;
     assertFalse(helper.placeDotComOnce(3, new int[3], 3, 1));
   }
+
+  @Test
+  public void convertToAlphaCells_shouldSuccess() {
+    int[] coords = {0, 1, 2};
+    ArrayList<String> alphaCells = helper.covertToAlphaCells(coords);
+    assertEquals("a0", alphaCells.get(0));
+    assertEquals("a1", alphaCells.get(1));
+    assertEquals("a2", alphaCells.get(2));
+    assertEquals(3, alphaCells.size());
+  }
+
+  @Test
+  public void convertToAlphaCells_gridShouldBeOne() {
+    int[] coords = {0, 1, 2};
+    helper.covertToAlphaCells(coords);
+    assertEquals(1, helper.grid[0]);
+    assertEquals(1, helper.grid[1]);
+    assertEquals("hehehe", 1, helper.grid[2]);
+    for (int i = 3; i < helper.grid.length; i++) {
+      assertEquals(String.format("grid[%d] checking failed", i), 0, helper.grid[i]);
+    }
+  }
 }

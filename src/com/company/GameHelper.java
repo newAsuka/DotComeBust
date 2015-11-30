@@ -4,6 +4,7 @@ import javax.imageio.IIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -83,5 +84,25 @@ public class GameHelper {
       coords[index] = location;
     }
     return true;
+  }
+
+  ArrayList<String> covertToAlphaCells(int[] coords) {
+    int x = 0;
+    int row = 0;
+    int column = 0;
+
+    ArrayList<String> alphaCells = new ArrayList<>();
+    String temp;
+    while (x < coords.length) {
+      grid[coords[x]] = 1;
+
+      row = coords[x] / gridLength; //get row value   ////exchange row with column
+      column = coords[x] % gridLength; //get numeric column value
+      temp = String.valueOf(alphabet.charAt(row)); //covert to alpha
+
+      alphaCells.add(temp.concat(Integer.toString(column)));
+      x++;
+    }
+    return alphaCells;
   }
 }
